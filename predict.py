@@ -3,15 +3,16 @@ import numpy as np
 import keras
 from nltk import word_tokenize
 import tensorflow as tf
-from tf.compat.v1.keras.backend import set_session
+#from tf.compat.v1.keras.backend import set_session
 from keras.preprocessing import sequence
 import nltk
 nltk.download('punkt')
 
 
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-set_session(tf.Session(config=config))
+config = tf.compat.v1.ConfigProto
+#config.gpu_options.allow_growth = True
+#tf.compat.v1.keras.backend.set_session()
+tf.compat.v1.Session()
 
 INDEX_FROM=3
 word_to_id = imdb.get_word_index()
@@ -21,7 +22,7 @@ word_to_id["<START>"] = 1
 word_to_id["<UNK>"] = 2
 
 model = keras.models.load_model("./sentiment2.model.h5")
-model._make_predict_function()
+#model._make_predict_function()
 
 reverse_word_index = dict([(value, key) for (key, value) in word_to_id.items()])
 

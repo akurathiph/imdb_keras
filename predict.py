@@ -3,7 +3,7 @@ import numpy as np
 import keras
 from nltk import word_tokenize
 import tensorflow as tf
-from keras.backend.tensorflow_backend import set_session
+from tf.compat.v1.keras.backend import set_session
 from keras.preprocessing import sequence
 import nltk
 nltk.download('punkt')

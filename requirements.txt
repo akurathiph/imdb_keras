@@ -1,5 +1,6 @@
+keras
 flask
 numpy
-tensorflow==2.2.0
+tensorflow
 nltk
-Keras==2.2.0
+

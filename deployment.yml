@@ -1,13 +1,13 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: predict-imdb 
+  name: predict-imdb
   namespace: default
   labels:
     app: imdb-server
 spec:
   revisionHistoryLimit: 3
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
       app: imdb-server
@@ -23,8 +23,9 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
          - echo "start";
-           git clone https://github.com/itayariel/imdb_keras;
+           git clone https://github.com/akurathiph/imdb_keras;
            cd imdb_keras;
+           /usr/bin/python3 -m pip install --upgrade pip
            pip install -r requirements.txt;
            python server.py;
         ports:
